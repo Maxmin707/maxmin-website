@@ -1,51 +1,70 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const companyLogos: { name: string; src: string }[] = [
+    { name: "Google", src: "/logos/google.png" },
+    { name: "Microsoft", src: "/logos/microsoft.png" },
+    { name: "Amazon", src: "/logos/amazon.png" },
+    { name: "Meta", src: "/logos/meta.png" },
+    // Add more as needed1
+  ];
+
   return (
-    <div className="flex flex-col gap-4 p-4">
-      <Button className="bg-red-500 cursor-pointer hover:bg-red-600">
-        Button
-      </Button>
+    <main className="flex flex-col">
+      {/* building name */}
+      <section className="w-full p-56 relative min-h-[90vh] bg-[linear-gradient(315deg,_#1e3a8a_0%,_#10131a_60%,_#000_100%)] overflow-hidden">
+        {/* Gradient Glow Circle Behind Text */}
 
-      <button type="button">
-        Button
-        <Image
-          src="/images/next.svg"
-          alt="Next.js Logo"
-          width={100}
-          height={100}
-          className="rounded-full"
-        />
-      </button>
+        {/* Main Heading */}
+        <div className="flex w-[800px] flex-col gap-4 items-start justify-center">
+          <h1 className="font-poppins text-6xl font-extrabold text-white">
+            Helping small businesses scale
+          </h1>
+          <p className="font-inter font-semibold  text-2xl text-[#4E4E4E]">
+            Helping SMEs adopt tech tools which help them scale faster and
+            compete in the market.
+          </p>
 
-      {/* Container div with top margin */}
-      <div className="mt-4">
-        <Link href="/carousel">
-          <Button className="bg-blue-500 hover:bg-blue-600">
-            View Carousel Examples
-          </Button>
-        </Link>
-        {/* Description of carousel */}
-        <p className="text-gray-600 mt-2">
-          A carousel is a rotating set of images or content, often used to
-          showcase multiple items in a compact space.
-        </p>
-      </div>
-      {/* New container div for another carousel */}
-      <div className="mt-4">
-        <Link href="/carousel2">
-          <Button className="bg-green-500 hover:bg-green-600">
-            View Another Carousel
-          </Button>
-        </Link>
-        {/* Description of another carousel */}
-        <p className="text-gray-600 mt-2">
-          Explore another example of a carousel with different styles and
-          functionality.
-        </p>
-      </div>
-    </div>
+          {/* buttons */}
+          <div></div>
+        </div>
+      </section>
+
+      {/* building the brands section */}
+      <section className="w-full flex-col p-56 relative min-h-[10vh] flex items-center justify-center bg-white overflow-hidden">
+        {/* We want to showcase the company logos and names here in which we have created an impact  */}
+        {/* Main Heading */}
+        <div className="flex w-[800px] flex-col gap-4 items-start justify-center">
+          <h1 className="font-poppins text-6xl font-extrabold text-white">
+            Helping small businesses scale
+          </h1>
+          <p className="font-inter font-semibold  text-2xl text-[#4E4E4E]">
+            Helping SMEs adopt tech tools which help them scale faster and
+            compete in the market.
+          </p>
+        </div>
+
+        {/* project div show casing */}
+        <div className="flex gap-8 mt-8 flex-wrap">
+          {companyLogos.map((company) => (
+            <div
+              key={company.name}
+              className="w-20 h-20 flex items-center justify-center rounded-full bg-gray-100 shadow-md border border-gray-200"
+              title={company.name}
+            >
+              <img
+                src={company.src}
+                alt={company.name + " logo"}
+                className="w-14 h-14 object-contain rounded-full"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* building the solutions part */}
+      <section></section>
+    </main>
   );
 }
